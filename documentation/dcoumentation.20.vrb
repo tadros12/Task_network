@@ -1,0 +1,10 @@
+\frametitle{DHCP Test: PC Example}
+\begin{lstlisting}
+# On PC in Building A, subnet 10.1.3.0/24:
+PC2> ip dhcp
+# Expected: IP 10.1.3.x/24, GW 10.1.3.1
+
+# On PC in Building B, subnet 10.2.2.0/24:
+PC3> ip dhcp
+# Expected: IP 10.2.2.x/24, GW 10.2.2.1
+\end{lstlisting}

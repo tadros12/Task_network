@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.12) (preloaded format=pdflatex 2025.2.7)  9 MAY 2025 12:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.12) (preloaded format=pdflatex 2025.2.7)  9 MAY 2025 13:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,8 +875,43 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 [17
 
 ]
+\openout4 = `dcoumentation.18.vrb'.
+
+ (dcoumentation.18.vrb)
 
 [18
+
+]
+\openout4 = `dcoumentation.19.vrb'.
+
+ (dcoumentation.19.vrb)
+
+[19
+
+]
+\openout4 = `dcoumentation.20.vrb'.
+
+ (dcoumentation.20.vrb)
+
+[20
+
+]
+\openout4 = `dcoumentation.21.vrb'.
+
+ (dcoumentation.21.vrb)
+
+[21
+
+]
+\openout4 = `dcoumentation.22.vrb'.
+
+ (dcoumentation.22.vrb)
+
+[22
+
+]
+
+[23
 
 ]
 \tf@nav=\write6
@@ -897,17 +932,20 @@ Package rerunfilecheck Info: File `dcoumentation.out' has not changed.
 (rerunfilecheck)             Checksum: FC22B0033DA611D16A6EACB46F47E5C5;816.
  ) 
 Here is how much of TeX's memory you used:
- 26452 strings out of 475467
- 514640 string characters out of 5766475
- 991838 words of memory out of 5000000
- 48859 multiletter control sequences out of 15000+600000
+ 26568 strings out of 475467
+ 518046 string characters out of 5766475
+ 1032411 words of memory out of 5000000
+ 48939 multiletter control sequences out of 15000+600000
  570367 words of font info for 78 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  128i,14n,123p,454b,1161s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{dhcp} has been referenced but does not exist, replaced by a fixed one
+
 </home/theodoros/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmss10.pfb></home/theodoros/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmss12.pfb></home/theodoros/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmss8.pfb></home/theodoros/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></home/theodoros/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmssi10.pfb></home/theodoros/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb></home/theodoros/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on dcoumentation.pdf (18 pages, 200381 bytes).
+Output written on dcoumentation.pdf (23 pages, 233379 bytes).
 PDF statistics:
- 559 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
+ 700 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

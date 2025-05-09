@@ -1,2 +1,18 @@
-\frametitle{DHCP Configuration}
-This section will be added later.
+\frametitle{DHCP: University Router}
+\begin{lstlisting}
+ip pool add name=pool1 ranges=10.1.1.2-10.1.1.2
+ip pool add name=pool2 ranges=10.2.1.2-10.2.1.2
+
+ip dhcp-server add interface=ether1 address-pool=pool1 \
+  lease-time=24h name=dhcp1 disabled=no
+ip dhcp-server add interface=ether2 address-pool=pool2 \
+  lease-time=24h name=dhcp2 disabled=no
+
+ip dhcp-server network add address=10.1.1.0/30 \
+  dns-server=8.8.8.8,8.8.4.4 gateway=10.1.1.1
+ip dhcp-server network add address=10.2.1.0/30 \
+  dns-server=8.8.8.8,8.8.4.4 gateway=10.2.1.1
+
+ip dhcp-server enable 0
+ip dhcp-server enable 1
+\end{lstlisting}

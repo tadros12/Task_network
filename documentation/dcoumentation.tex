@@ -151,7 +151,6 @@ PC4> ip 10.2.3.2/24 10.2.3.1
 
 \section{Static/Dynamic Routing}
 
-% University Router RIP
 \begin{frame}[fragile,label=routing]
 \frametitle{RIP Configuration: University Router}
 \begin{lstlisting}
@@ -169,7 +168,6 @@ routing rip set garbage-timer=30s
 \end{lstlisting}
 \end{frame}
 
-% Building A Router RIP
 \begin{frame}[fragile]
 \frametitle{RIP Configuration: Building A Router}
 \begin{lstlisting}
@@ -184,11 +182,8 @@ routing rip set update-timer=15s
 routing rip set timeout-timer=30s
 routing rip set garbage-timer=30s
 \end{lstlisting}
-
-
 \end{frame}
 
-% Building B Router RIP
 \begin{frame}[fragile]
 \frametitle{RIP Configuration: Building B Router}
 \begin{lstlisting}
@@ -239,9 +234,111 @@ PC1> ping 10.2.3.2
 \end{frame}
 
 \section{DHCP Configuration}
-\begin{frame}[fragile,label=dhcp]
-\frametitle{DHCP Configuration}
-This section will be added later.
+
+\begin{frame}[fragile,label=dhcp-university]
+\frametitle{DHCP: University Router}
+\begin{lstlisting}
+ip pool add name=pool1 ranges=10.1.1.2-10.1.1.2
+ip pool add name=pool2 ranges=10.2.1.2-10.2.1.2
+
+ip dhcp-server add interface=ether1 address-pool=pool1 \
+  lease-time=24h name=dhcp1 disabled=no
+ip dhcp-server add interface=ether2 address-pool=pool2 \
+  lease-time=24h name=dhcp2 disabled=no
+
+ip dhcp-server network add address=10.1.1.0/30 \
+  dns-server=8.8.8.8,8.8.4.4 gateway=10.1.1.1
+ip dhcp-server network add address=10.2.1.0/30 \
+  dns-server=8.8.8.8,8.8.4.4 gateway=10.2.1.1
+
+ip dhcp-server enable 0
+ip dhcp-server enable 1
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,label=dhcp-university-explanation1]
+\frametitle{DHCP University Router: Command Explanations (1/2)}
+\begin{itemize}
+    \item \texttt{ip pool add ...} \\
+    Creates a pool (range) of IP addresses that the DHCP server can assign to clients, excluding addresses statically set on routers.
+    \item \texttt{ip dhcp-server add ...} \\
+    Enables a DHCP server on a specific interface, using the defined pool. \texttt{lease-time=24h} means each client keeps its IP for 24 hours.
+    \item \texttt{name=dhcpX} \\
+    Used to identify different DHCP servers per interface (e.g., \texttt{dhcp1} for ether1, \texttt{dhcp2} for ether2).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,label=dhcp-university-explanation2]
+\frametitle{DHCP University Router: Command Explanations (2/2)}
+\begin{itemize}
+    \item \texttt{ip dhcp-server network add ...} \\
+    Specifies the subnet, default gateway, and DNS servers (here, Google DNS) to inform clients.
+    \item \texttt{ip dhcp-server enable X} \\
+    Activates the DHCP server instance (replace \texttt{X} with the correct number).
+    \item \texttt{ip dhcp-server print} \\
+    Shows the current DHCP servers configured on the router.
+    \item \texttt{ip dhcp-server lease print} \\
+    Displays the list of IPs assigned to clients.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,label=dhcp-building-a]
+\frametitle{DHCP: Building A Router}
+\begin{lstlisting}
+ip address add address=10.1.2.1/24 interface=ether2
+ip address add address=10.1.3.1/24 interface=ether3
+
+ip pool add name=pool-buildingA1 ranges=10.1.2.100-10.1.2.200
+ip pool add name=dhcp-pool-buildingA2 ranges=10.1.3.100-10.1.3.200
+
+ip dhcp-server network add address=10.1.2.0/24 \
+  gateway=10.1.2.1 dns-server=8.8.8.8
+ip dhcp-server network add address=10.1.3.0/24 \
+  gateway=10.1.3.1 dns-server=8.8.8.8
+
+ip dhcp-server add interface=ether2 name=dhcp-buildingA1 \
+  address-pool=pool-buildingA1
+ip dhcp-server add interface=ether3 name=dhcp-buildingA2 \
+  address-pool=dhcp-pool-buildingA2
+ip dhcp-server enable dhcp-buildingA1
+ip dhcp-server enable dhcp-buildingA2
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,label=dhcp-building-b]
+\frametitle{DHCP: Building B Router}
+\begin{lstlisting}
+ip address add address=10.2.2.1/24 interface=ether2
+ip address add address=10.2.3.1/24 interface=ether3
+
+ip pool add name=pool-buildingB1 ranges=10.2.2.100-10.2.2.200
+ip pool add name=dhcp-pool-buildingB2 ranges=10.2.3.100-10.2.3.200
+
+ip dhcp-server network add address=10.2.2.0/24 \
+  gateway=10.2.2.1 dns-server=8.8.8.8
+ip dhcp-server network add address=10.2.3.0/24 \
+  gateway=10.2.3.1 dns-server=8.8.8.8
+
+ip dhcp-server add interface=ether2 name=dhcp-buildingB1 \
+  address-pool=pool-buildingB1
+ip dhcp-server add interface=ether3 name=dhcp-buildingB2 \
+  address-pool=dhcp-pool-buildingB2
+ip dhcp-server enable dhcp-buildingB1
+ip dhcp-server enable dhcp-buildingB2
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,label=dhcp-test-pc]
+\frametitle{DHCP Test: PC Example}
+\begin{lstlisting}
+# On PC in Building A, subnet 10.1.3.0/24:
+PC2> ip dhcp
+# Expected: IP 10.1.3.x/24, GW 10.1.3.1
+
+# On PC in Building B, subnet 10.2.2.0/24:
+PC3> ip dhcp
+# Expected: IP 10.2.2.x/24, GW 10.2.2.1
+\end{lstlisting}
 \end{frame}
 
 \section{VLAN Configuration}
@@ -264,10 +361,10 @@ This section will be added later.
         \item Network design completed
         \item Basic configuration implemented
         \item Local and routed connectivity established
+        \item DHCP configuration added
     \end{itemize}
     \item \textbf{Next Steps:}
     \begin{itemize}
-        \item Add DHCP configuration
         \item Add VLAN configuration
         \item Document and test full connectivity
     \end{itemize}

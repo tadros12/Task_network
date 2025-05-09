@@ -1,28 +1,20 @@
-\frametitle{Network Testing (continued)}
+\frametitle{DHCP: Building A Router}
+\begin{lstlisting}
+ip address add address=10.1.2.1/24 interface=ether2
+ip address add address=10.1.3.1/24 interface=ether3
 
-\textbf{Network Performance Summary}
-\begin{itemize}
-    \item Average RTT between buildings: <2ms
-    \item TCP throughput: ~80 Mbps
-    \item All subnets reachable via dynamic routing
-    \item No packet loss observed in continuous testing
-\end{itemize}
+ip pool add name=pool-buildingA1 ranges=10.1.2.100-10.1.2.200
+ip pool add name=dhcp-pool-buildingA2 ranges=10.1.3.100-10.1.3.200
 
-\textbf{End-to-End Communication Test Results}
-\begin{table}
-\centering
-\small
-\begin{tabular}{|l|c|c|c|}
-\hline
-\textbf{Source} & \textbf{Destination} & \textbf{Average Latency} & \textbf{Success Rate} \\
-\hline
-PC1 (Bldg A) & PC3 (Bldg B) & 1.42 ms & 100\% \\
-\hline
-PC2 (Bldg A) & PC4 (Bldg B) & 1.56 ms & 100\% \\
-\hline
-PC3 (Bldg B) & PC1 (Bldg A) & 1.39 ms & 100\% \\
-\hline
-PC4 (Bldg B) & PC2 (Bldg A) & 1.51 ms & 100\% \\
-\hline
-\end{tabular}
-\end{table}
+ip dhcp-server network add address=10.1.2.0/24 \
+  gateway=10.1.2.1 dns-server=8.8.8.8
+ip dhcp-server network add address=10.1.3.0/24 \
+  gateway=10.1.3.1 dns-server=8.8.8.8
+
+ip dhcp-server add interface=ether2 name=dhcp-buildingA1 \
+  address-pool=pool-buildingA1
+ip dhcp-server add interface=ether3 name=dhcp-buildingA2 \
+  address-pool=dhcp-pool-buildingA2
+ip dhcp-server enable dhcp-buildingA1
+ip dhcp-server enable dhcp-buildingA2
+\end{lstlisting}

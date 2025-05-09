@@ -1,2 +1,9 @@
-\frametitle{VLAN Configuration}
-This section will be added later.
+\frametitle{DHCP University Router: Command Explanations (1/2)}
+\begin{itemize}
+    \item \texttt{ip pool add ...} \\
+    Creates a pool (range) of IP addresses that the DHCP server can assign to clients, excluding addresses statically set on routers.
+    \item \texttt{ip dhcp-server add ...} \\
+    Enables a DHCP server on a specific interface, using the defined pool. \texttt{lease-time=24h} means each client keeps its IP for 24 hours.
+    \item \texttt{name=dhcpX} \\
+    Used to identify different DHCP servers per interface (e.g., \texttt{dhcp1} for ether1, \texttt{dhcp2} for ether2).
+\end{itemize}

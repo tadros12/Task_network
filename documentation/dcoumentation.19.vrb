@@ -1,0 +1,20 @@
+\frametitle{DHCP: Building B Router}
+\begin{lstlisting}
+ip address add address=10.2.2.1/24 interface=ether2
+ip address add address=10.2.3.1/24 interface=ether3
+
+ip pool add name=pool-buildingB1 ranges=10.2.2.100-10.2.2.200
+ip pool add name=dhcp-pool-buildingB2 ranges=10.2.3.100-10.2.3.200
+
+ip dhcp-server network add address=10.2.2.0/24 \
+  gateway=10.2.2.1 dns-server=8.8.8.8
+ip dhcp-server network add address=10.2.3.0/24 \
+  gateway=10.2.3.1 dns-server=8.8.8.8
+
+ip dhcp-server add interface=ether2 name=dhcp-buildingB1 \
+  address-pool=pool-buildingB1
+ip dhcp-server add interface=ether3 name=dhcp-buildingB2 \
+  address-pool=dhcp-pool-buildingB2
+ip dhcp-server enable dhcp-buildingB1
+ip dhcp-server enable dhcp-buildingB2
+\end{lstlisting}

@@ -1,2 +1,11 @@
-\frametitle{Network Testing}
-This section will be added later.
+\frametitle{DHCP University Router: Command Explanations (2/2)}
+\begin{itemize}
+    \item \texttt{ip dhcp-server network add ...} \\
+    Specifies the subnet, default gateway, and DNS servers (here, Google DNS) to inform clients.
+    \item \texttt{ip dhcp-server enable X} \\
+    Activates the DHCP server instance (replace \texttt{X} with the correct number).
+    \item \texttt{ip dhcp-server print} \\
+    Shows the current DHCP servers configured on the router.
+    \item \texttt{ip dhcp-server lease print} \\
+    Displays the list of IPs assigned to clients.
+\end{itemize}
