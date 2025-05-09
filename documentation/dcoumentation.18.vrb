@@ -1,0 +1,28 @@
+\frametitle{Network Testing (continued)}
+
+\textbf{Network Performance Summary}
+\begin{itemize}
+    \item Average RTT between buildings: <2ms
+    \item TCP throughput: ~80 Mbps
+    \item All subnets reachable via dynamic routing
+    \item No packet loss observed in continuous testing
+\end{itemize}
+
+\textbf{End-to-End Communication Test Results}
+\begin{table}
+\centering
+\small
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Source} & \textbf{Destination} & \textbf{Average Latency} & \textbf{Success Rate} \\
+\hline
+PC1 (Bldg A) & PC3 (Bldg B) & 1.42 ms & 100\% \\
+\hline
+PC2 (Bldg A) & PC4 (Bldg B) & 1.56 ms & 100\% \\
+\hline
+PC3 (Bldg B) & PC1 (Bldg A) & 1.39 ms & 100\% \\
+\hline
+PC4 (Bldg B) & PC2 (Bldg A) & 1.51 ms & 100\% \\
+\hline
+\end{tabular}
+\end{table}

@@ -12,3 +12,4 @@ Fri May  9 11:18:58 2025
  vncext:      Created VNC server for screen 0
 [mi] mieq: warning: overriding existing handler (nil) with 0x55b151ed5670 for event 2
 [mi] mieq: warning: overriding existing handler (nil) with 0x55b151ed5670 for event 3
+Incompatible bits per pixel given for GPU buffer

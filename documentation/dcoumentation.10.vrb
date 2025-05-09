@@ -1,0 +1,14 @@
+\frametitle{RIP Configuration: University Router}
+\begin{lstlisting}
+# Enable RIP on relevant interfaces
+routing rip interface add interface=ether1 send=v2 receive=v2
+routing rip interface add interface=ether2 send=v2 receive=v2
+# Tell RIP about directly connected subnets
+routing rip network add network=10.1.1.0/30
+routing rip network add network=10.2.1.0/30
+# Set RIP settings
+routing rip set redistribute-connected=yes
+routing rip set update-timer=15s
+routing rip set timeout-timer=30s
+routing rip set garbage-timer=30s
+\end{lstlisting}

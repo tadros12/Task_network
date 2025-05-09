@@ -1,2 +1,0 @@
-\beamer@sectionintoc {1}{Network Design}{3}{0}{1}
-\beamer@sectionintoc {2}{Next Steps}{11}{0}{2}
