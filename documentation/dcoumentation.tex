@@ -342,33 +342,148 @@ PC3> ip dhcp
 \end{frame}
 
 \section{VLAN Configuration}
+
 \begin{frame}[fragile,label=vlans]
-\frametitle{VLAN Configuration}
-This section will be added later.
-\end{frame}
+\frametitle{VLAN Configuration: Building A}
+\begin{lstlisting}
+interface vlan add name=vlan10 vlan-id=10 interface=ether2 disabled=no
+interface vlan add name=vlan20 vlan-id=20 interface=ether3 disabled=no
 
-\section{Network Testing}
-\begin{frame}[fragile,label=testing]
-\frametitle{Network Testing}
-This section will be added later.
-\end{frame}
+ip address add address=10.1.2.1/24 interface=vlan10
+ip address add address=10.1.3.1/24 interface=vlan20
 
-\begin{frame}
-\frametitle{Conclusion}
+ip address remove [find where interface=ether2]
+ip address remove [find where interface=ether3]
+
+interface vlan print
+ip address print
+\end{lstlisting}
 \begin{itemize}
-    \item \textbf{Current Progress:}
-    \begin{itemize}
-        \item Network design completed
-        \item Basic configuration implemented
-        \item Local and routed connectivity established
-        \item DHCP configuration added
-    \end{itemize}
-    \item \textbf{Next Steps:}
-    \begin{itemize}
-        \item Add VLAN configuration
-        \item Document and test full connectivity
-    \end{itemize}
+    \item vlan10 on ether2: Subnet 10.1.2.0/24 (e.g., PC1, webterm, PC7)
+    \item vlan20 on ether3: Subnet 10.1.3.0/24 (e.g., PC6)
+    \item Only VLAN interfaces have subnet IPs; physical interfaces do not.
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Switch1 Configuration: Building A VLANs}
+\begin{lstlisting}
+Example Switch1 configuration (for VLAN 10/20)
+ Port 0: dot1q trunk (to Router ether2/ether3)
+ Port 1: VLAN 10 access (to PC1)
+ Port 2: VLAN 10 access (to webterm)
+ Port 3: VLAN 10 access (to PC7)
+
+Port | VLAN | Type
+0    | 1    | dot1q   # trunk to router ether2/ether3
+1    | 10   | access  # PC1
+2    | 10   | access  # webterm
+3    | 10   | access  # PC7
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,label=vlans-b]
+\frametitle{VLAN Configuration: Building B}
+\begin{lstlisting}
+interface vlan add name=vlan30 vlan-id=30 interface=ether2 disabled=no
+interface vlan add name=vlan40 vlan-id=40 interface=ether3 disabled=no
+
+ip address add address=10.2.2.1/24 interface=vlan30
+ip address add address=10.2.3.1/24 interface=vlan40
+
+ip address remove [find where interface=ether2]
+ip address remove [find where interface=ether3]
+
+interface vlan print
+ip address print
+\end{lstlisting}
+\begin{itemize}
+    \item vlan30 on ether2: Subnet 10.2.2.0/24 (e.g., PC3)
+    \item vlan40 on ether3: Subnet 10.2.3.0/24 (e.g., PC4, PC5)
+    \item Only VLAN interfaces have subnet IPs; physical interfaces do not.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Switch2, Switch3, Switch4: Building B VLANs}
+\begin{lstlisting}
+# Switch2 configuration (Image 1)
+Port | VLAN | Type
+0    | 1    | dot1q
+1    | 20   | access
+2    | 20   | access
+3-5  | 1    | access
+
+# Switch3 configuration (Image 2)
+Port | VLAN | Type
+0    | 1    | dot1q
+1    | 30   | access
+2-5  | 1    | access
+
+# Switch4 configuration (Image 3)
+Port | VLAN | Type
+0    | 1    | dot1q
+1-2  | 40   | access
+3-5  | 1    | access
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{VLAN Configuration Testing \& Verification}
+  \begin{itemize}
+      \item \texttt{interface vlan print} \\
+      Confirms VLAN interfaces and their status.
+      \item \texttt{ip address print} \\
+      Shows all IP assignments, ensuring only VLANs have subnet addresses.
+      \item Connect PCs to correct VLAN and confirm DHCP works.
+      \item \texttt{ping <gateway>} from a PC to verify connectivity.
+  \end{itemize}
+  \end{frame}
+  
+  \section{Network Testing}
+
+  \begin{frame}[fragile,label=testing-dhcp]
+  \frametitle{Network Testing: DHCP Assignment}
+  \begin{lstlisting}
+  PC7> ip dhcp
+  DORA IP 10.1.2.99/24 GW 10.1.2.1
+  PC6> ip dhcp
+  DORA IP 10.1.3.200/24 GW 10.1.3.1
+  PC3> ip dhcp
+  DORA IP 10.2.2.200/24 GW 10.2.2.1
+  PC5> ip dhcp
+  DORA IP 10.2.3.200/24 GW 10.2.3.1
+  PC4> ip dhcp
+  DORA IP 10.2.3.199/24 GW 10.2.3.1
+  \end{lstlisting}
+  \begin{itemize}
+      \item Each PC receives the correct IP address and gateway via DHCP.
+  \end{itemize}
+  \end{frame}
+  
+  \begin{frame}[fragile,label=testing-ping]
+  \frametitle{Network Testing: Inter-VLAN/Inter-Building Connectivity}
+  \begin{lstlisting}
+  PC7> ping 10.1.2.1
+  84 bytes from 10.1.2.1 icmp_seq=1 ttl=64 time=0.327 ms
+  
+  PC6> ping 10.1.2.99
+  84 bytes from 10.1.2.99 icmp_seq=1 ttl=63 time=1.741 ms
+  
+  PC3> ping 10.1.2.99
+  84 bytes from 10.1.2.99 icmp_seq=1 ttl=61 time=1.478 ms
+  
+  PC5> ping 10.1.3.200
+  84 bytes from 10.1.3.200 icmp_seq=1 ttl=61 time=2.051 ms
+  
+  PC4> ping 10.1.2.99
+  84 bytes from 10.1.2.99 icmp_seq=1 ttl=61 time=2.036 ms
+  PC4> ping 10.1.2.3
+  84 bytes from 10.1.2.3 icmp_seq=1 ttl=61 time=1.390 ms
+  \end{lstlisting}
+  \begin{itemize}
+      \item All ping tests successful, showing inter-building and inter-VLAN routing with DHCP and VLANs.
+  \end{itemize}
+  \end{frame}
 
 \end{document}

@@ -1,6 +1,6 @@
 uBridge version 0.9.19 running with libpcap version 1.10.5 (with TPACKET_V3)
-Hypervisor TCP control server started (IP localhost port 36315).
-UDP tunnel connecting from local port 10043 to IPv4 address 127.0.0.1 on port 10042
+Hypervisor TCP control server started (IP localhost port 39467).
+UDP tunnel connecting from local port 10047 to IPv4 address 127.0.0.1 on port 10046
 UDP tunnel connecting from local port 10012 to IPv4 address 127.0.0.1 on port 10013
 Source NIO listener thread for VPCS-c8d5bba4-dffb-4146-992b-a4358858f5b6 has started
 Destination NIO listener thread for VPCS-c8d5bba4-dffb-4146-992b-a4358858f5b6 has started

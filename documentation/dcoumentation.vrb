@@ -1,18 +1,9 @@
-\frametitle{Verification: End-to-End Connectivity with RIP}
-\textbf{Ping from PC3 to PC2 (Building B to Building A):}
-\begin{lstlisting}
-PC3> ping 10.1.3.2
-
-84 bytes from 10.1.3.2 icmp_seq=1 ttl=61 time=1.491 ms
-84 bytes from 10.1.3.2 icmp_seq=2 ttl=61 time=1.291 ms
-84 bytes from 10.1.3.2 icmp_seq=3 ttl=61 time=2.439 ms
-\end{lstlisting}
-\textbf{Ping from PC1 to PC4 (Building A to Building B):}
-\begin{lstlisting}
-PC1> ping 10.2.3.2
-
-84 bytes from 10.2.3.2 icmp_seq=1 ttl=61 time=1.831 ms
-84 bytes from 10.2.3.2 icmp_seq=2 ttl=61 time=1.235 ms
-84 bytes from 10.2.3.2 icmp_seq=3 ttl=61 time=2.860 ms
-\end{lstlisting}
-\textit{Successful replies indicate full network reachability via dynamic routing.}
+\frametitle{VLAN Configuration Testing \& Verification}
+  \begin{itemize}
+      \item \texttt{interface vlan print} \\
+      Confirms VLAN interfaces and their status.
+      \item \texttt{ip address print} \\
+      Shows all IP assignments, ensuring only VLANs have subnet addresses.
+      \item Connect PCs to correct VLAN and confirm DHCP works.
+      \item \texttt{ping <gateway>} from a PC to verify connectivity.
+  \end{itemize}

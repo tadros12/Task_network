@@ -18,5 +18,9 @@
 \beamer@slide {dhcp-test-pc}{20}
 \beamer@slide {vlans<1>}{21}
 \beamer@slide {vlans}{21}
-\beamer@slide {testing<1>}{22}
-\beamer@slide {testing}{22}
+\beamer@slide {vlans-b<1>}{23}
+\beamer@slide {vlans-b}{23}
+\beamer@slide {testing-dhcp<1>}{26}
+\beamer@slide {testing-dhcp}{26}
+\beamer@slide {testing-ping<1>}{27}
+\beamer@slide {testing-ping}{27}

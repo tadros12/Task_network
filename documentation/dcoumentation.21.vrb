@@ -1,2 +1,19 @@
-\frametitle{VLAN Configuration}
-This section will be added later.
+\frametitle{VLAN Configuration: Building A}
+\begin{lstlisting}
+interface vlan add name=vlan10 vlan-id=10 interface=ether2 disabled=no
+interface vlan add name=vlan20 vlan-id=20 interface=ether3 disabled=no
+
+ip address add address=10.1.2.1/24 interface=vlan10
+ip address add address=10.1.3.1/24 interface=vlan20
+
+ip address remove [find where interface=ether2]
+ip address remove [find where interface=ether3]
+
+interface vlan print
+ip address print
+\end{lstlisting}
+\begin{itemize}
+    \item vlan10 on ether2: Subnet 10.1.2.0/24 (e.g., PC1, webterm, PC7)
+    \item vlan20 on ether3: Subnet 10.1.3.0/24 (e.g., PC6)
+    \item Only VLAN interfaces have subnet IPs; physical interfaces do not.
+\end{itemize}

@@ -5,46 +5,11 @@ See https://www.tigervnc.org for information on TigerVNC.
 Underlying X server release 12101016
 
 
-Fri May  9 13:54:39 2025
+Sat May 10 14:52:03 2025
  vncext:      VNC extension running!
  vncext:      Listening for VNC connections on localhost interface(s), port
               5900
  vncext:      Created VNC server for screen 0
-[mi] mieq: warning: overriding existing handler (nil) with 0x55932bbf3670 for event 2
-[mi] mieq: warning: overriding existing handler (nil) with 0x55932bbf3670 for event 3
+[mi] mieq: warning: overriding existing handler (nil) with 0x555bb2ec8670 for event 2
+[mi] mieq: warning: overriding existing handler (nil) with 0x555bb2ec8670 for event 3
 Incompatible bits per pixel given for GPU buffer
-
-Fri May  9 13:54:45 2025
- Connections: Accepted: [::1]::33810
- SConnection: Client needs protocol version 3.8
- SConnection: Client requests security type None(1)
- VNCSConnST:  Server default pixel format depth 16 (16bpp) little-endian rgb565
- VNCSConnST:  Client pixel format depth 24 (32bpp) little-endian rgb888
-
-Fri May  9 13:54:46 2025
- ComparingUpdateTracker: 0 pixels in / 0 pixels out
- ComparingUpdateTracker: (1:-nan ratio)
- ComparingUpdateTracker: 2.16832 Mpixels in / 953.6 kpixels out
- ComparingUpdateTracker: (1:2.27383 ratio)
-
-Fri May  9 13:55:31 2025
- VNCSConnST:  Closing [::1]::33810: Clean disconnection
- EncodeManager: Framebuffer updates: 361
- EncodeManager:   CopyRect:
- EncodeManager:     Copies: 1 rects, 23 pixels
- EncodeManager:             16 B (1:6.5 ratio)
- EncodeManager:   Tight:
- EncodeManager:     Solid: 2.627 krects, 53.9478 Mpixels
- EncodeManager:            41.0469 KiB (1:5134.73 ratio)
- EncodeManager:     Bitmap RLE: 452 rects, 2.25622 Mpixels
- EncodeManager:                 15.291 KiB (1:576.723 ratio)
- EncodeManager:     Indexed RLE: 4.324 krects, 23.3778 Mpixels
- EncodeManager:                  1.81936 MiB (1:49.0441 ratio)
- EncodeManager:   Tight (JPEG):
- EncodeManager:     Full Colour: 282 rects, 2.43251 Mpixels
- EncodeManager:                  1.5685 MiB (1:5.9181 ratio)
- EncodeManager:   Total: 7.686 krects, 82.0144 Mpixels
- EncodeManager:          3.44288 MiB (1:90.897 ratio)
- Connections: Closed: [::1]::33810
- ComparingUpdateTracker: 330.586 Mpixels in / 76.5025 Mpixels out
- ComparingUpdateTracker: (1:4.32125 ratio)

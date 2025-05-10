@@ -3,4 +3,4 @@
 \beamer@sectionintoc {3}{Static/Dynamic Routing}{10}{0}{3}
 \beamer@sectionintoc {4}{DHCP Configuration}{15}{0}{4}
 \beamer@sectionintoc {5}{VLAN Configuration}{21}{0}{5}
-\beamer@sectionintoc {6}{Network Testing}{22}{0}{6}
+\beamer@sectionintoc {6}{Network Testing}{26}{0}{6}

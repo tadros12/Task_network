@@ -1,0 +1,22 @@
+\frametitle{Network Testing: Inter-VLAN/Inter-Building Connectivity}
+  \begin{lstlisting}
+  PC7> ping 10.1.2.1
+  84 bytes from 10.1.2.1 icmp_seq=1 ttl=64 time=0.327 ms
+
+  PC6> ping 10.1.2.99
+  84 bytes from 10.1.2.99 icmp_seq=1 ttl=63 time=1.741 ms
+
+  PC3> ping 10.1.2.99
+  84 bytes from 10.1.2.99 icmp_seq=1 ttl=61 time=1.478 ms
+
+  PC5> ping 10.1.3.200
+  84 bytes from 10.1.3.200 icmp_seq=1 ttl=61 time=2.051 ms
+
+  PC4> ping 10.1.2.99
+  84 bytes from 10.1.2.99 icmp_seq=1 ttl=61 time=2.036 ms
+  PC4> ping 10.1.2.3
+  84 bytes from 10.1.2.3 icmp_seq=1 ttl=61 time=1.390 ms
+  \end{lstlisting}
+  \begin{itemize}
+      \item All ping tests successful, showing inter-building and inter-VLAN routing with DHCP and VLANs.
+  \end{itemize}

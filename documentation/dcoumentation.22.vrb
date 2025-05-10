@@ -1,2 +1,14 @@
-\frametitle{Network Testing}
-This section will be added later.
+\frametitle{VLAN Configuration: Building B}
+\begin{lstlisting}
+interface vlan add name=vlan30 interface=ether2 vlan-id=30
+interface vlan add name=vlan40 interface=ether3 vlan-id=40
+
+ip address add address=10.2.2.1/24 interface=vlan30
+ip address add address=10.2.3.1/24 interface=vlan40
+
+ip address remove [find where interface=ether2]
+ip address remove [find where interface=ether3]
+
+interface vlan print
+ip address print
+\end{lstlisting}
