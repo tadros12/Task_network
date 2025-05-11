@@ -1,6 +1,0 @@
-May 10 11:16:11.008 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
-May 10 11:16:11.008 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 33993.
-May 10 11:16:11.016 HYPERVISOR: exec_cmd: hypervisor version 
-May 10 11:16:11.017 HYPERVISOR: exec_cmd: hypervisor working_dir /home/theodoros/GNS3/projects/Task/project-files/dynamips 
-May 10 11:16:11.017 GENERAL: working_dir=/home/theodoros/GNS3/projects/Task/project-files/dynamips
-May 10 11:16:11.017 HYPERVISOR: exec_cmd: ethsw create Switch5 

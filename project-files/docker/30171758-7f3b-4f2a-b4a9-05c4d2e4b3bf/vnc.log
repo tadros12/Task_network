@@ -1,0 +1,18 @@
+
+Xvnc TigerVNC 1.15.0 - built Mar  3 2025 00:00:00
+Copyright (C) 1999-2025 TigerVNC team and many others (see README.rst)
+See https://www.tigervnc.org for information on TigerVNC.
+Underlying X server release 12101016
+
+
+Sun May 11 16:13:40 2025
+ vncext:      VNC extension running!
+ vncext:      Listening for VNC connections on localhost interface(s), port
+              5901
+ vncext:      Created VNC server for screen 0
+[mi] mieq: warning: overriding existing handler (nil) with 0x5609d0ea1670 for event 2
+[mi] mieq: warning: overriding existing handler (nil) with 0x5609d0ea1670 for event 3
+
+Sun May 11 16:18:09 2025
+ ComparingUpdateTracker: 0 pixels in / 0 pixels out
+ ComparingUpdateTracker: (1:-nan ratio)

@@ -1,18 +1,9 @@
 uBridge version 0.9.19 running with libpcap version 1.10.5 (with TPACKET_V3)
-Hypervisor TCP control server started (IP localhost port 38325).
+Hypervisor TCP control server started (IP localhost port 33879).
 UDP tunnel connecting from local port 10065 to IPv4 address 127.0.0.1 on port 10064
-UDP tunnel connecting from local port 10062 to IPv4 address 127.0.0.1 on port 10063
+UDP tunnel connecting from local port 10027 to IPv4 address 127.0.0.1 on port 10026
 Source NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
 Destination NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
-UDP tunnel connecting from local port 10065 to IPv4 address 127.0.0.1 on port 10064
-UDP tunnel connecting from local port 10066 to IPv4 address 127.0.0.1 on port 10063
-Source NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
-Destination NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
-UDP tunnel connecting from local port 10065 to IPv4 address 127.0.0.1 on port 10064
-UDP tunnel connecting from local port 10067 to IPv4 address 127.0.0.1 on port 10066
-Source NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
-Destination NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
-UDP tunnel connecting from local port 10065 to IPv4 address 127.0.0.1 on port 10064
-UDP tunnel connecting from local port 10068 to IPv4 address 127.0.0.1 on port 10067
-Source NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
-Destination NIO listener thread for VPCS-45c04cba-41e9-4355-b26f-ad182ca794be has started
+Hypervisor: closing control sockets.
+Hypervisor: closing remote client connections.
+Hypervisor: stopped.

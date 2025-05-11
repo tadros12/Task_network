@@ -5,11 +5,14 @@ See https://www.tigervnc.org for information on TigerVNC.
 Underlying X server release 12101016
 
 
-Sat May 10 14:52:03 2025
+Sun May 11 16:13:40 2025
  vncext:      VNC extension running!
  vncext:      Listening for VNC connections on localhost interface(s), port
               5900
  vncext:      Created VNC server for screen 0
-[mi] mieq: warning: overriding existing handler (nil) with 0x555bb2ec8670 for event 2
-[mi] mieq: warning: overriding existing handler (nil) with 0x555bb2ec8670 for event 3
-Incompatible bits per pixel given for GPU buffer
+[mi] mieq: warning: overriding existing handler (nil) with 0x55ba2aca4670 for event 2
+[mi] mieq: warning: overriding existing handler (nil) with 0x55ba2aca4670 for event 3
+
+Sun May 11 16:18:09 2025
+ ComparingUpdateTracker: 0 pixels in / 0 pixels out
+ ComparingUpdateTracker: (1:-nan ratio)
